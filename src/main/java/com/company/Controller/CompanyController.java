@@ -14,7 +14,7 @@ import java.util.Collection;
  * Created by Justin on 26.04.2017.
  */
 @RestController
-@RequestMapping ("/componies")
+@RequestMapping ("/companies")
 public class CompanyController {
 
     @Autowired
