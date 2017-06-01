@@ -36,4 +36,12 @@ public class CompanyDAO {
         public Collection<Company> getCompanies(){
             return this.companies.values();
         }
+
+        public Company findById (int id){
+            for(Company company :  getCompanies()){
+                if(company.getId() == id)
+                    return company;
+            }
+            return null;
+        }
 }

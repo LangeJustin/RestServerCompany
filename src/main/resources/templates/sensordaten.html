@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="UTF-8"/>
+    <title>Alle my super cool data</title>
 </head>
 <body>
-$END$
+<h1>Signalliste</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Bezeichnung</th>
+        <th>Auflösung</th>
+        <th>Kopplung</th>
+        <th>Beschreibung</th>
+    </tr>
+
+    <tr th:each="sensordaten : ${sensordaten}">
+        <td th:text="${sensordaten.getId()}">1</td>
+        <td>th:text="${sensordaten.getBezeichnung()}">Bezeichnung ...</td>
+        <td th:text="${sensordaten.getAufloesung()}">Aufloesung ...</td>
+        <td th:text="${sensordaten.getKopplung()}">Kopplung ...</td>
+        <td th:text="${sensordaten.getBeschreibung()}">Beschreibung ...</td>
+    </tr>
+</table>
+
+
+
+
 </body>
 </html>

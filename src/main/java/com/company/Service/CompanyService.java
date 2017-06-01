@@ -20,4 +20,12 @@ public class CompanyService {
         return companyDAO.getCompanies();
     }
 
+    public Company findById (int id){
+        for(Company company :  companyDAO.getCompanies()){
+            if(company.getId() == id)
+                return company;
+        }
+        return null;
+    }
+
 }

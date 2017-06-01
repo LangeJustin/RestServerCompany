@@ -4,24 +4,51 @@ import com.company.Entity.Company;
 import com.company.Service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
 
-import java.util.Collection;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 /**
  * Created by Justin on 26.04.2017.
  */
-@RestController
-@RequestMapping ("/companies")
+//TODO: Restcontroller integrieren
+//@RestController
+@Controller
+//@RequestMapping(value = "companies")
 public class CompanyController {
 
     @Autowired
     private CompanyService companyService;
 
-    @RequestMapping (method = RequestMethod.GET)
-    public Collection<Company> getCompanies(){
-        return companyService.getCompanies();
+
+    // TODO: später zmq einbinden. (Daten von zmq im Model übergeben)
+    @RequestMapping (value = "/companies")
+    public String getCompanies(Model model){
+        //Collection<Company> companies = companyService.getCompanies();
+        model.addAttribute("company", "company, yeaaaaaaaaaaaaaaaaaaaaaaaaaah!");
+
+        return "test";
     }
+
+
+    @RequestMapping("/companies/{id}")
+    public String company(@PathVariable int id, ModelMap modelMap){
+        Company company = companyService.findById(id);
+        modelMap.put("getcompany", company);
+
+        return "companyid";
+    }
+
+    @RequestMapping("/companies/all")
+    public String company(Model model){
+        model.addAttribute("companies", companyService.getCompanies());
+
+        return "allcompanies";
+    }
+
+
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Alle my super cool data</title>
+        <link rel = "stylesheet" th:href="@{/app2.css}"/>
+    </head>
+<body>
+    <div  style ="float: left;">
+       <h1>SPS / Feldbus</h1>
+         <div id="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 100px;">id</th>
+                        <th style="width: 100px;">Bezeichnung</th>
+                        <th style="width: 100px;">Datentyp</th>
+                        <th style="width: 100px;">Offset</th>
+                        <th style="width: 100px;">Häufigkeit</th>
+                        <th style="width: 150px;">nur bei Änderung</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="feldbus : ${feldbus}">
+                        <td th:text="${feldbus.getId()}">1</td>
+                        <td th:text="${feldbus.getBezeichnung()}"></td>
+                        <td th:text="${feldbus.getDatentyp()}"></td>
+                        <td th:text="${feldbus.getOffset()}"></td>
+                        <td th:text="${feldbus.getHaeufigkeit()}"></td>
+                        <td th:text="${feldbus.isAenderung()}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+
+<div style ="float: left;">
+    <h1>Signalliste</h1>
+        <div id="table-scroll">
+            <table class = "fixed_headers">
+                <thead>
+                    <tr>
+                        <th>Kanal</th>
+                        <th>Bezeichnung</th>
+                        <th>Auflösung</th>
+                        <th>Kopplung</th>
+                        <th>Beschreibung</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="sensordaten : ${sensordaten}">
+                        <td th:text="${sensordaten.getKanal()}">1</td>
+                        <td th:text="${sensordaten.getBezeichnung()}">Bezeichnung ...</td>
+                        <td th:text="${sensordaten.getAufloesung()}">Aufloesung ...</td>
+                        <td th:text="${sensordaten.getKopplung()}">Kopplung ...</td>
+                        <td th:text="${sensordaten.getBeschreibung()}">Beschreibung ...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+
+
+    <button type="button">Click Me!</button>
+
+</body>
+</html>
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Alle my super cool data</title>
+    <link rel = "stylesheet" th:href="@{css/app2.css}"/>
+</head>
+<body>
+<div style ="float: left;">
+    <h1>10 Sekunden</h1>
+    <div id="table-scroll">
+        <table class = "fixed_headers">
+            <thead>
+            <tr>
+                <th>Anzahl</th>
+                <th>wert</th>
+
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="myList : ${myList}">
+                <td th:text="${myList}">1</td>
+                <td th:text="${myList}">Bezeichnung ...</td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<button type="button">Click Me!</button>
+
+</body>
+</html>
+
+

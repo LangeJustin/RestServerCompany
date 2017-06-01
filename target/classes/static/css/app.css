@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+body {
+    font-family: 'varela round', sans-serif;
+}
+
+h1{
+    padding: 10px;
+    background: #4CAF50;
+    color: #ffffff;
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+
+/*table tbody, table thead
+{
+    display: block;
+}
+
+table tbody
+{
+    overflow: auto;
+    height: 50px;
+}
+
+table thead
+{
+    overflow: auto;
+    height: 50px;
+}*/
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    width: 60px;
+}
+
+td {
+    background-color: white;
+    color: black;
+    width: 60px;
+}
+
+
+
+
+
+
