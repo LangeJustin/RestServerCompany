@@ -5,7 +5,7 @@
     <title>Alle my super cool data</title>
     <link rel = "stylesheet" th:href="@{css/app2.css}"/>
 </head>
-<body>
+<body th:inline="text">
 <div style ="float: left;">
     <h1>10 Sekunden</h1>
     <div id="table-scroll">
@@ -33,6 +33,22 @@
 <button type="button">Click Me!</button>
 
 </body>
+
+<body th:inline="text">
+
+   ...
+
+   <p>Hello, [[${myList[19]}]]!</p>
+   
+   ...
+
+</body>
+<script th:inline="javascript">
+/*<![CDATA[*/
+    var username = /*[[${myList[0]}]]*/'John Apricot';
+    document.write(5+6);
+/*]]>*/
+</script>
 </html>
 
 

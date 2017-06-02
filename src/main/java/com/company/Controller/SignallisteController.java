@@ -36,10 +36,9 @@ public class SignallisteController {
         //TODO: zmq
         int k = 0;
         ArrayList<Integer> myList = new ArrayList<>();
-        myList.add(k);
 
         long startTime = System.currentTimeMillis(); //fetch starting time
-        while(false||(System.currentTimeMillis()-startTime)<0.05)
+        while(false||(System.currentTimeMillis()-startTime)<0.5)
         {
             // do something
             myList.add(k);
@@ -47,8 +46,9 @@ public class SignallisteController {
         }
         model.addAttribute("myList", myList );
 
+        //return "test";
+        return "allcompanies";
 
-        return "test";
     }
 
 }

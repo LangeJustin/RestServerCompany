@@ -2,43 +2,102 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8"/>
-    <title>Alle my super cool data</title>
+    <title>Signalliste</title>
+    <link rel = "stylesheet" th:href="@{css/app2.css}"/>
 </head>
+
 <body>
 
-<table>
-  <thead>
-    <tr>
-      <th th:text="#{seedstarter.rows.head.rownum}">Row</th>
-      <th th:text="#{seedstarter.rows.head.variety}">Variety</th>
-      <th th:text="#{seedstarter.rows.head.seedsPerCell}">Seeds per cell</th>
-      <th>
-        <button type="submit" name="addRow" th:text="#{seedstarter.row.add}">Add row</button>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="row,rowStat : *{rows}">
-      <td th:text="${rowStat.count}">1</td>
-      <td>
-        <select th:field="*{rows[__${rowStat.index}__].variety}">
-          <option th:each="var : ${allVarieties}" 
-                  th:value="${var.id}" 
-                  th:text="${var.name}">Thymus Thymi</option>
-        </select>
-      </td>
-      <td>
-        <input type="text" th:field="*{rows[__${rowStat.index}__].seedsPerCell}" />
-      </td>
-      <td>
-        <button type="submit" name="removeRow" 
-                th:value="${rowStat.index}" th:text="#{seedstarter.row.remove}">Remove row</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<p id="demo3"></p>
+
+<p id="demo"></p>
 
 
+
+<button onclick="myStartFunction()" >Start</button> 
+<button onclick="myStopFunction()">Stop</button>
+<div width="800" border="0" cellspacing="0" cellpadding="0" align="center">
+
+<h1 style="font-size:200%;">Signalliste</h1>
+<p id="demo2" style="font-size:100%;"> 0 records</p> <p id="demo4">0 seconds</p>
+<div id="table-wrapper">
+  <div id="table-scroll">
+	<table>
+       	<thead>
+           <tr>
+               <th><span class="text">Kanal</span></th>
+               <th><span class="text">Bezeichnung</span></th>
+               <th><span class="text">Auflösung</span></th>
+               <th><span class="text">Kopplung</span></th>
+               <th><span class="text">Beschreibung</span></th>
+               
+           </tr>
+    	</thead>
+    	<tbody  id="myTable">
+     			<tr>       
+     			</tr>
+    	</tbody>
+	</table>
+</div>
+</div>
+</div>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+	var myVar;
+	var i = 1;
+	var second = 1
+	var username = /*[[${myList}]]*/'default';
+    //document.write(username);
+
+function myStartFunction() {
+	myVar = setInterval(alertFunc, 82);
+	setTimeout(function myStopFunction() { clearInterval(myVar);}, 10000);
+	setTimeout(sekunden, 1000);
+	setTimeout(sekunden, 2000);
+	setTimeout(sekunden, 3000);
+	setTimeout(sekunden, 4000);
+	setTimeout(sekunden, 5000);
+	setTimeout(sekunden, 6000);
+	setTimeout(sekunden, 7000);
+	setTimeout(sekunden, 8000);
+	setTimeout(sekunden, 9000);
+	setTimeout(sekunden, 10000);
+	//setTimeout(myStopFunction(), 10000);
+    
+}
+
+function sekunden (){
+    document.getElementById("demo4").innerHTML = second + " seconds";
+    ++second;
+}
+
+function alertFunc() {
+    //document.getElementById("demo").innerHTML += username[i] + " ";
+    document.getElementById("demo2").innerHTML = username[i] + " records";
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    cell1.innerHTML = username[Math.floor((Math.random() * 99) + 1)];
+    cell2.innerHTML = username[Math.floor((Math.random() * 99) + 1)];
+    cell3.innerHTML = username[Math.floor((Math.random() * 99) + 1)];
+    cell4.innerHTML = username[Math.floor((Math.random() * 99) + 1)];
+    cell5.innerHTML = username[Math.floor((Math.random() * 99) + 1)];
+    i = i +1;
+}
+
+function myStopFunction() {
+    clearInterval(myVar);
+}   
+
+
+    
+/*]]>*/
+</script>
 </body>
 </html>
 
