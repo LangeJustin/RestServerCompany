@@ -135,6 +135,8 @@ td {
 
 #table-wrapper {
   position:relative;
+    width:40%;
+
 }
 #table-scroll {
   height:540px;
@@ -142,7 +144,7 @@ td {
   margin-top:20px;
 }
 #table-wrapper table {
-  width:40%;
+  width:100%;
 
 }
 
